@@ -65,7 +65,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"Jump",
-"speed": 5.0
+"speed": 10.0
 }]
 
 [node name="Frog" type="Area2D" unique_id=874692017]
@@ -81,6 +81,4 @@ metadata/_edit_group_ = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1405565668]
 position = Vector2(16, 16)
 sprite_frames = SubResource("SpriteFrames_ig7tw")
-animation = &"Jump"
-frame = 5
-frame_progress = 0.6278351
+animation = &"Idle"
