@@ -19,12 +19,18 @@ config/icon="res://icon.svg"
 
 window/size/viewport_width=608
 window/size/viewport_height=448
-window/stretch/mode="canvas_items"
-window/stretch/aspect="expand"
+window/stretch/mode="viewport"
 
 [dotnet]
 
 project/assembly_name="time-frogger"
+
+[layer_names]
+
+2d_physics/layer_1="Frog"
+2d_physics/layer_2="Death"
+2d_physics/layer_3="Carry"
+2d_physics/layer_4="Lilypad"
 
 [physics]
 

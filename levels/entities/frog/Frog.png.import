@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ddgwwnuuxwk7f"
-path="res://.godot/imported/Frog.png-d986f10cd468950b70153fed7917dab6.ctex"
+path="res://.godot/imported/Frog.png-6d0d049656c1c6d644aba68316638849.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Frog.png"
-dest_files=["res://.godot/imported/Frog.png-d986f10cd468950b70153fed7917dab6.ctex"]
+source_file="res://levels/entities/frog/Frog.png"
+dest_files=["res://.godot/imported/Frog.png-6d0d049656c1c6d644aba68316638849.ctex"]
 
 [params]
 

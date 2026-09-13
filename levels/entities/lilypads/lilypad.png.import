@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://du26i4b7i3kfh"
-path="res://.godot/imported/croc.png-01c6e0be8529dedfb850e5e184c06089.ctex"
+uid="uid://b3a1wt0j5ralv"
+path="res://.godot/imported/lilypad.png-05a34ff3f6d7623b87ca68f110c236a6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://croc.png"
-dest_files=["res://.godot/imported/croc.png-01c6e0be8529dedfb850e5e184c06089.ctex"]
+source_file="res://levels/entities/lilypads/lilypad.png"
+dest_files=["res://.godot/imported/lilypad.png-05a34ff3f6d7623b87ca68f110c236a6.ctex"]
 
 [params]
 

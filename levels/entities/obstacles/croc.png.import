@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3a1wt0j5ralv"
-path="res://.godot/imported/lilypad.png-5eb5cecd996dc549dba34429fb5847e8.ctex"
+uid="uid://du26i4b7i3kfh"
+path="res://.godot/imported/croc.png-c361a1b2079c496b7d30c7b0070b77d0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://lilypad.png"
-dest_files=["res://.godot/imported/lilypad.png-5eb5cecd996dc549dba34429fb5847e8.ctex"]
+source_file="res://levels/entities/obstacles/croc.png"
+dest_files=["res://.godot/imported/croc.png-c361a1b2079c496b7d30c7b0070b77d0.ctex"]
 
 [params]
 
