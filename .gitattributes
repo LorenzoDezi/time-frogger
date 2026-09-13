@@ -1,0 +1,58 @@
+# --- Line-ending normalization for ALL text files ---
+* text=auto eol=lf
+
+# --- Git LFS for binary assets ---
+
+# 2D images / textures / sprites / tilesets / backgrounds
+*.png   filter=lfs diff=lfs merge=lfs -text
+*.jpg   filter=lfs diff=lfs merge=lfs -text
+*.jpeg  filter=lfs diff=lfs merge=lfs -text
+*.webp  filter=lfs diff=lfs merge=lfs -text
+*.bmp   filter=lfs diff=lfs merge=lfs -text
+*.tga   filter=lfs diff=lfs merge=lfs -text
+*.dds   filter=lfs diff=lfs merge=lfs -text
+*.exr   filter=lfs diff=lfs merge=lfs -text
+*.hdr   filter=lfs diff=lfs merge=lfs -text
+*.svgz  filter=lfs diff=lfs merge=lfs -text
+
+# Audio
+*.wav   filter=lfs diff=lfs merge=lfs -text
+*.mp3   filter=lfs diff=lfs merge=lfs -text
+*.ogg   filter=lfs diff=lfs merge=lfs -text
+*.flac  filter=lfs diff=lfs merge=lfs -text
+*.opus  filter=lfs diff=lfs merge=lfs -text
+*.aiff  filter=lfs diff=lfs merge=lfs -text
+
+# Fonts
+*.ttf   filter=lfs diff=lfs merge=lfs -text
+*.otf   filter=lfs diff=lfs merge=lfs -text
+*.woff  filter=lfs diff=lfs merge=lfs -text
+*.woff2 filter=lfs diff=lfs merge=lfs -text
+*.fnt   filter=lfs diff=lfs merge=lfs -text
+
+# Source art (PSD, Aseprite, Krita, etc.)
+*.psd      filter=lfs diff=lfs merge=lfs -text
+*.aseprite filter=lfs diff=lfs merge=lfs -text
+*.ase      filter=lfs diff=lfs merge=lfs -text
+*.kra      filter=lfs diff=lfs merge=lfs -text
+*.clip     filter=lfs diff=lfs merge=lfs -text
+*.sai      filter=lfs diff=lfs merge=lfs -text
+
+# 3D meshes (a 2D game may still import a few models)
+*.glb   filter=lfs diff=lfs merge=lfs -text
+*.gltf  filter=lfs diff=lfs merge=lfs -text
+*.blend filter=lfs diff=lfs merge=lfs -text
+*.fbx   filter=lfs diff=lfs merge=lfs -text
+*.obj   filter=lfs diff=lfs merge=lfs -text
+
+# Video / cutscenes
+*.ogv   filter=lfs diff=lfs merge=lfs -text
+*.webm  filter=lfs diff=lfs merge=lfs -text
+*.mp4   filter=lfs diff=lfs merge=lfs -text
+*.mov   filter=lfs diff=lfs merge=lfs -text
+
+# Godot BINARY scenes & resources (generated/serialized, no useful diff)
+*.scn   filter=lfs diff=lfs merge=lfs -text
+*.res   filter=lfs diff=lfs merge=lfs -text
+*.binary  filter=lfs diff=lfs merge=lfs -text
+*.meshlib filter=lfs diff=lfs merge=lfs -text
