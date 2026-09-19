@@ -1,7 +1,38 @@
 [gd_scene format=3 uid="uid://poyhy7koxxey"]
 
 [ext_resource type="PackedScene" uid="uid://cp274iq05fckx" path="res://levels/level.tscn" id="1_ig7tw"]
-[ext_resource type="PackedScene" uid="uid://b0pbb2kxyaicc" path="res://levels/entities/frog/frog.tscn" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://b0pbb2kxyaicc" path="res://entities/frog/frog.tscn" id="2_0xm2m"]
+[ext_resource type="Script" uid="uid://u48rp3pof5f3" path="res://entities/spawn_director.gd" id="3_272bh"]
+[ext_resource type="PackedScene" uid="uid://dsjh5jkpvkvou" path="res://entities/obstacles/log.tscn" id="5_7mycd"]
+[ext_resource type="Script" uid="uid://cxv1xnta73ep5" path="res://entities/spawners/spawner.gd" id="5_lquwl"]
+[ext_resource type="Script" uid="uid://bwf5q1nxie4nj" path="res://entities/spawners/spawn_sequence.gd" id="6_272bh"]
+[ext_resource type="Script" uid="uid://c3cku758krhgu" path="res://entities/spawners/spawn_sequence_item.gd" id="7_5vw27"]
+
+[sub_resource type="Resource" id="Resource_lquwl"]
+script = ExtResource("7_5vw27")
+obstacleToSpawn = ExtResource("5_7mycd")
+time_to_wait_next = 3.0
+speed_per_second = 32.0
+metadata/_custom_type_script = "uid://c3cku758krhgu"
+
+[sub_resource type="Resource" id="Resource_7mycd"]
+script = ExtResource("7_5vw27")
+obstacleToSpawn = ExtResource("5_7mycd")
+time_to_wait_next = 3.0
+speed_per_second = 32.0
+metadata/_custom_type_script = "uid://c3cku758krhgu"
+
+[sub_resource type="Resource" id="Resource_5vw27"]
+script = ExtResource("7_5vw27")
+obstacleToSpawn = ExtResource("5_7mycd")
+time_to_wait_next = 5.0
+speed_per_second = 32.0
+metadata/_custom_type_script = "uid://c3cku758krhgu"
+
+[sub_resource type="Resource" id="Resource_272bh"]
+script = ExtResource("6_272bh")
+items = Array[ExtResource("7_5vw27")]([SubResource("Resource_lquwl"), SubResource("Resource_7mycd"), SubResource("Resource_5vw27")])
+metadata/_custom_type_script = "uid://bwf5q1nxie4nj"
 
 [node name="Main" type="Node2D" unique_id=1657470593]
 
@@ -12,3 +43,19 @@ position = Vector2(304, 224)
 
 [node name="Frog" parent="." unique_id=874692017 instance=ExtResource("2_0xm2m")]
 position = Vector2(288, 416)
+
+[node name="SpawnDirector" type="Node2D" parent="." unique_id=1956584291]
+script = ExtResource("3_272bh")
+reversed = true
+
+[node name="Spawner" type="Node2D" parent="SpawnDirector" unique_id=226259476 node_paths=PackedStringArray("start_spawn", "end_spawn")]
+position = Vector2(0, 64)
+script = ExtResource("5_lquwl")
+start_spawn = NodePath("LeftSpawn")
+end_spawn = NodePath("RightSpawn")
+spawn_sequence = SubResource("Resource_272bh")
+
+[node name="LeftSpawn" type="Node2D" parent="SpawnDirector/Spawner" unique_id=1521107325]
+
+[node name="RightSpawn" type="Node2D" parent="SpawnDirector/Spawner" unique_id=1452314014]
+position = Vector2(608, 0)

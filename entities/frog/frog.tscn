@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b0pbb2kxyaicc"]
 
-[ext_resource type="Script" uid="uid://buxas812cfn6o" path="res://levels/entities/frog/frog.gd" id="1_df5by"]
-[ext_resource type="Texture2D" uid="uid://ddgwwnuuxwk7f" path="res://levels/entities/frog/Frog.png" id="1_fvr38"]
+[ext_resource type="Script" uid="uid://buxas812cfn6o" path="res://entities/frog/frog.gd" id="1_df5by"]
+[ext_resource type="Texture2D" uid="uid://ddgwwnuuxwk7f" path="res://entities/frog/Frog.png" id="1_fvr38"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t4qmi"]
 size = Vector2(32, 32)

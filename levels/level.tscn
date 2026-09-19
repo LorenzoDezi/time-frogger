@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://cp274iq05fckx"]
 
 [ext_resource type="TileSet" uid="uid://caws2ckqk6a80" path="res://levels/tiles/tile_map.tres" id="1_hjsbj"]
-[ext_resource type="PackedScene" uid="uid://c418jx75f6w60" path="res://levels/entities/lilypads/lilypad.tscn" id="2_cwqvt"]
+[ext_resource type="PackedScene" uid="uid://c418jx75f6w60" path="res://entities/lilypads/lilypad.tscn" id="2_cwqvt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n6gt7"]
 size = Vector2(608, 224)

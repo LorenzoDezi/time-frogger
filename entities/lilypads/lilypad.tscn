@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c418jx75f6w60"]
 
-[ext_resource type="Texture2D" uid="uid://b3a1wt0j5ralv" path="res://levels/entities/lilypads/lilypad.png" id="1_lovyn"]
+[ext_resource type="Texture2D" uid="uid://b3a1wt0j5ralv" path="res://entities/lilypads/lilypad.png" id="1_lovyn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t4qmi"]
 size = Vector2(32, 32)

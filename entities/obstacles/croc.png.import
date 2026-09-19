@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bfn56ri3e2bcd"
-path="res://.godot/imported/cars.png-6378175efde89ec6a1228194e4bb03ea.ctex"
+uid="uid://du26i4b7i3kfh"
+path="res://.godot/imported/croc.png-983e89e782dfb698ef772fa065821310.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://levels/entities/cars/sprites/cars.png"
-dest_files=["res://.godot/imported/cars.png-6378175efde89ec6a1228194e4bb03ea.ctex"]
+source_file="res://entities/obstacles/croc.png"
+dest_files=["res://.godot/imported/croc.png-983e89e782dfb698ef772fa065821310.ctex"]
 
 [params]
 
