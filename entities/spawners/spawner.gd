@@ -1,7 +1,11 @@
 class_name Spawner
 extends Node2D
 
+enum ObstacleDirection {RIGHT = 1, LEFT = -1}
+
 @export var start_timer: float
+@export var direction: ObstacleDirection = ObstacleDirection.RIGHT
+@export var speed_per_second = 32
 var _timer: float = start_timer
 var _sequence_item_times: Array[float] = []
 var _item_count: int
@@ -41,7 +45,7 @@ func update(delta: float) -> void:
 	elif delta < 0:
 		var prev_sequence_i = (_sequence_i + _item_count - 1) % _item_count
 		var prev_sequence_timer = _sequence_item_times[prev_sequence_i] \
-				if prev_sequence_i != _item_count-1 else 0
+				if prev_sequence_i != _item_count-1 else 0.0
 		if _timer <= prev_sequence_timer:
 			spawn_obstacle_at_end()
 			_sequence_i = prev_sequence_i
@@ -54,18 +58,26 @@ func update(delta: float) -> void:
 	#TODO: Clear up obstacle out of view
 
 func spawn_obstacle_at_start() -> void:
-	_obstacles.push_back(spawn_obstacle_at(start_spawn.position))
+	var spawn_position = end_spawn.position if direction == ObstacleDirection.LEFT else start_spawn.position
+	var obstacle = spawn_obstacle_at(spawn_position)
+	if direction == ObstacleDirection.LEFT:
+		obstacle.position.x += obstacle.get_x_size()
+	
+	_obstacles.push_back(obstacle)
 
 func spawn_obstacle_at_end() -> void:
-	var obstacle = spawn_obstacle_at(end_spawn.position)
-	obstacle.position.x += obstacle.get_x_size()
+	var spawn_position = end_spawn.position if direction == ObstacleDirection.RIGHT else start_spawn.position
+	var obstacle = spawn_obstacle_at(spawn_position)
+	if direction == ObstacleDirection.RIGHT:
+		obstacle.position.x += obstacle.get_x_size()
+	
 	_obstacles.push_front(obstacle)
 
 func spawn_obstacle_at(spawn_pos: Vector2) -> Obstacle:
-	var curr_spawn_item = spawn_sequence.items[_sequence_i]
+	var curr_spawn_item: SpawnSequenceItem = spawn_sequence.items[_sequence_i]
 	var obstacle: Obstacle = curr_spawn_item.obstacleToSpawn.instantiate()
 	add_child(obstacle)
 	obstacle.position = spawn_pos
-	obstacle.speed_per_second = curr_spawn_item.speed_per_second
+	obstacle.speed_per_second = speed_per_second if direction == ObstacleDirection.RIGHT else -speed_per_second
 	print("Spawned ", obstacle.name, " at", spawn_pos)
 	return obstacle

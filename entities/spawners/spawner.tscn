@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://b4xyd84de7mve"]
+
+[ext_resource type="Script" uid="uid://cxv1xnta73ep5" path="res://entities/spawners/spawner.gd" id="1_mvxc3"]
+
+[node name="Spawner" type="Node2D" unique_id=1629314907 node_paths=PackedStringArray("start_spawn", "end_spawn")]
+script = ExtResource("1_mvxc3")
+start_spawn = NodePath("LeftSpawn")
+end_spawn = NodePath("RightSpawn")
+
+[node name="LeftSpawn" type="Node2D" parent="." unique_id=441818045]
+
+[node name="RightSpawn" type="Node2D" parent="." unique_id=226065911]
+position = Vector2(608, 0)

@@ -6,6 +6,9 @@
 .android/
 .nomedia
 
+# VS Code
+.vscode/
+
 # Godot-specific ignores
 .import/
 export.cfg
