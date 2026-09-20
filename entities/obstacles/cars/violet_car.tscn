@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://bs7bcfy8tby1f"]
+
+[ext_resource type="Script" uid="uid://b8oibogythofr" path="res://entities/obstacles/obstacle.gd" id="1_qkmdc"]
+[ext_resource type="Texture2D" uid="uid://t2wn8q5lsdpk" path="res://entities/obstacles/cars/sprites/car_3_atlas_texture.tres" id="2_qkmdc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t4qmi"]
+size = Vector2(32, 32)
+
+[node name="violet_car" type="Area2D" unique_id=330448282]
+script = ExtResource("1_qkmdc")
+dangerous = true
+carrying = false
+metadata/_custom_type_script = "uid://b8oibogythofr"
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=766920375]
+position = Vector2(-16, 16)
+shape = SubResource("RectangleShape2D_t4qmi")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1727526471]
+position = Vector2(-16, 16)
+texture = ExtResource("2_qkmdc")
+flip_h = true

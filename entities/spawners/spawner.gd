@@ -21,26 +21,40 @@ func _ready() -> void:
 	_timer = start_timer
 	var sequence_total_time = 0.0
 	var sequence_index_found = false
-	for item_i in range(spawn_sequence.items.size()):
+	_item_count = spawn_sequence.items.size()
+
+	# time caching
+	for item_i in range(_item_count):
 		sequence_total_time += spawn_sequence.items[item_i].time_to_wait_next
 		_sequence_item_times.push_back(sequence_total_time)
-		if !sequence_index_found and _timer <= sequence_total_time:
+	
+	# first spawn
+	var item_i = 0
+	sequence_total_time = 0.0
+	while !sequence_index_found:
+		sequence_total_time += spawn_sequence.items[item_i].time_to_wait_next
+		# normalizing time
+		if sequence_total_time > _sequence_item_times[_item_count-1]:
+			sequence_total_time -= _sequence_item_times[_item_count-1]
+			_timer -= _sequence_item_times[_item_count-1]
+		
+		if !sequence_index_found:
 			_sequence_i = item_i
-			sequence_index_found = true
-	_item_count = _sequence_item_times.size()
+			spawn_obstacle_at_start()
+			if _timer <= sequence_total_time:
+				sequence_index_found = true
+		item_i = (item_i + 1) % _item_count
 	
 func update(delta: float) -> void:
-	#TODO: this accumulates error with delta. we should account for log positioning
-	#based on timer?
 	_timer += delta
 	
 	if delta > 0:
 		var sequence_timer = _sequence_item_times[_sequence_i]
 		if _timer >= sequence_timer:
 			_sequence_i = (_sequence_i + 1) % _item_count
-			spawn_obstacle_at_start()
 			if _sequence_i == 0:
 				_timer = _timer - sequence_timer
+			spawn_obstacle_at_start()
 	
 	elif delta < 0:
 		var prev_sequence_i = (_sequence_i + _item_count - 1) % _item_count
@@ -55,14 +69,14 @@ func update(delta: float) -> void:
 	for obstacle in _obstacles:
 		obstacle.update(delta)
 	
-	#TODO: Clear up obstacle out of view
+	#TODO for performance: clear up obstacle out of view and reuse it to spawn
 
 func spawn_obstacle_at_start() -> void:
 	var spawn_position = end_spawn.position if direction == ObstacleDirection.LEFT else start_spawn.position
 	var obstacle = spawn_obstacle_at(spawn_position)
 	if direction == ObstacleDirection.LEFT:
 		obstacle.position.x += obstacle.get_x_size()
-	
+
 	_obstacles.push_back(obstacle)
 
 func spawn_obstacle_at_end() -> void:
@@ -77,7 +91,16 @@ func spawn_obstacle_at(spawn_pos: Vector2) -> Obstacle:
 	var curr_spawn_item: SpawnSequenceItem = spawn_sequence.items[_sequence_i]
 	var obstacle: Obstacle = curr_spawn_item.obstacleToSpawn.instantiate()
 	add_child(obstacle)
-	obstacle.position = spawn_pos
 	obstacle.speed_per_second = speed_per_second if direction == ObstacleDirection.RIGHT else -speed_per_second
+
+	var prev_sequence_i = (_sequence_i + _item_count - 1) % _item_count
+	var prev_sequence_timer = _sequence_item_times[prev_sequence_i] \
+				if prev_sequence_i != _item_count-1 else 0.0
+	var spawn_desync = _timer - prev_sequence_timer
+	print("Spawn desync ", spawn_desync, " at sequence i", _sequence_i)
+
+	spawn_pos.x += obstacle.speed_per_second * spawn_desync
+	obstacle.position = spawn_pos
+
 	print("Spawned ", obstacle.name, " at", spawn_pos)
 	return obstacle

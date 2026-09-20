@@ -4,40 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://b0pbb2kxyaicc" path="res://entities/frog/frog.tscn" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://b4xyd84de7mve" path="res://entities/spawners/spawner.tscn" id="3_1bvp3"]
 [ext_resource type="Script" uid="uid://u48rp3pof5f3" path="res://entities/spawn_director.gd" id="3_272bh"]
-[ext_resource type="PackedScene" uid="uid://dsjh5jkpvkvou" path="res://entities/obstacles/log.tscn" id="5_7mycd"]
+[ext_resource type="PackedScene" uid="uid://dsjh5jkpvkvou" path="res://entities/obstacles/logs/log.tscn" id="5_7mycd"]
 [ext_resource type="Script" uid="uid://bwf5q1nxie4nj" path="res://entities/spawners/spawn_sequence.gd" id="6_272bh"]
-[ext_resource type="Script" uid="uid://b8oibogythofr" path="res://entities/obstacles/obstacle.gd" id="6_kek77"]
-[ext_resource type="Texture2D" uid="uid://erueql15fvhv" path="res://entities/obstacles/log.png" id="7_4c57u"]
 [ext_resource type="Script" uid="uid://c3cku758krhgu" path="res://entities/spawners/spawn_sequence_item.gd" id="7_5vw27"]
-
-[sub_resource type="Resource" id="Resource_272bh"]
-script = ExtResource("7_5vw27")
-obstacleToSpawn = ExtResource("5_7mycd")
-time_to_wait_next = 3.0
-metadata/_custom_type_script = "uid://c3cku758krhgu"
-
-[sub_resource type="Resource" id="Resource_5vw27"]
-script = ExtResource("7_5vw27")
-obstacleToSpawn = ExtResource("5_7mycd")
-time_to_wait_next = 3.0
-metadata/_custom_type_script = "uid://c3cku758krhgu"
-
-[sub_resource type="Resource" id="Resource_kek77"]
-script = ExtResource("7_5vw27")
-obstacleToSpawn = ExtResource("5_7mycd")
-time_to_wait_next = 3.0
-metadata/_custom_type_script = "uid://c3cku758krhgu"
-
-[sub_resource type="Resource" id="Resource_4c57u"]
-script = ExtResource("7_5vw27")
-obstacleToSpawn = ExtResource("5_7mycd")
-time_to_wait_next = 3.0
-metadata/_custom_type_script = "uid://c3cku758krhgu"
-
-[sub_resource type="Resource" id="Resource_qsp4k"]
-script = ExtResource("6_272bh")
-items = Array[ExtResource("7_5vw27")]([SubResource("Resource_272bh"), SubResource("Resource_5vw27"), SubResource("Resource_kek77"), SubResource("Resource_4c57u")])
-metadata/_custom_type_script = "uid://bwf5q1nxie4nj"
 
 [sub_resource type="Resource" id="Resource_efxa6"]
 script = ExtResource("7_5vw27")
@@ -68,216 +37,6 @@ script = ExtResource("6_272bh")
 items = Array[ExtResource("7_5vw27")]([SubResource("Resource_efxa6"), SubResource("Resource_dg77c"), SubResource("Resource_ycdy4"), SubResource("Resource_w48qg")])
 metadata/_custom_type_script = "uid://bwf5q1nxie4nj"
 
-[sub_resource type="Resource" id="Resource_2cqfq"]
-script = ExtResource("7_5vw27")
-obstacleToSpawn = ExtResource("5_7mycd")
-time_to_wait_next = 3.0
-metadata/_custom_type_script = "uid://c3cku758krhgu"
-
-[sub_resource type="Resource" id="Resource_yaehf"]
-script = ExtResource("7_5vw27")
-obstacleToSpawn = ExtResource("5_7mycd")
-time_to_wait_next = 3.0
-metadata/_custom_type_script = "uid://c3cku758krhgu"
-
-[sub_resource type="Resource" id="Resource_074og"]
-script = ExtResource("7_5vw27")
-obstacleToSpawn = ExtResource("5_7mycd")
-time_to_wait_next = 3.0
-metadata/_custom_type_script = "uid://c3cku758krhgu"
-
-[sub_resource type="Resource" id="Resource_cegan"]
-script = ExtResource("7_5vw27")
-obstacleToSpawn = ExtResource("5_7mycd")
-time_to_wait_next = 3.0
-metadata/_custom_type_script = "uid://c3cku758krhgu"
-
-[sub_resource type="Resource" id="Resource_82xsv"]
-script = ExtResource("6_272bh")
-items = Array[ExtResource("7_5vw27")]([SubResource("Resource_2cqfq"), SubResource("Resource_yaehf"), SubResource("Resource_074og"), SubResource("Resource_cegan")])
-metadata/_custom_type_script = "uid://bwf5q1nxie4nj"
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_n6gt7"]
-size = Vector2(64, 32)
-
-[sub_resource type="PackedScene" id="PackedScene_kek77"]
-_bundled = {
-"conn_count": 0,
-"conns": PackedInt32Array(),
-"editable_instances": [],
-"id_paths": [PackedInt32Array(), PackedInt32Array()],
-"names": PackedStringArray("Log", "Area2D", "monitoring", "script", "metadata/_edit_group_", "CollisionShape2D", "CollisionShape2D", "position", "shape", "metadata/_edit_group_", "Sprite2D", "Sprite2D", "position", "texture", "metadata/_edit_group_"),
-"node_count": 3,
-"node_ids": PackedInt32Array(865107679, 1037705177, 51436763),
-"node_paths": [NodePath("."), NodePath(".")],
-"nodes": PackedInt32Array(-1, -1, 1, 0, -1, 3, 2, 0, 3, 1, 4, 2, 0, 1073741824, 0, 6, 5, -1, 3, 7, 3, 8, 4, 9, 5, 0, 1073741825, 0, 11, 10, -1, 3, 12, 6, 13, 7, 14, 8, 0),
-"variants": [false, ExtResource("6_kek77"), true, Vector2(-32, 16), SubResource("RectangleShape2D_n6gt7"), true, Vector2(-32, 16), ExtResource("7_4c57u"), true],
-"version": 3
-}
-
-[sub_resource type="Resource" id="Resource_getpj"]
-script = ExtResource("7_5vw27")
-obstacleToSpawn = SubResource("PackedScene_kek77")
-time_to_wait_next = 6.0
-metadata/_custom_type_script = "uid://c3cku758krhgu"
-
-[sub_resource type="PackedScene" id="PackedScene_ryguw"]
-_bundled = {
-"conn_count": 0,
-"conns": PackedInt32Array(),
-"editable_instances": [],
-"id_paths": [PackedInt32Array(), PackedInt32Array()],
-"names": PackedStringArray("Log", "Area2D", "monitoring", "script", "metadata/_edit_group_", "CollisionShape2D", "CollisionShape2D", "position", "shape", "metadata/_edit_group_", "Sprite2D", "Sprite2D", "position", "texture", "metadata/_edit_group_"),
-"node_count": 3,
-"node_ids": PackedInt32Array(865107679, 1037705177, 51436763),
-"node_paths": [NodePath("."), NodePath(".")],
-"nodes": PackedInt32Array(-1, -1, 1, 0, -1, 3, 2, 0, 3, 1, 4, 2, 0, 1073741824, 0, 6, 5, -1, 3, 7, 3, 8, 4, 9, 5, 0, 1073741825, 0, 11, 10, -1, 3, 12, 6, 13, 7, 14, 8, 0),
-"variants": [false, ExtResource("6_kek77"), true, Vector2(-32, 16), SubResource("RectangleShape2D_n6gt7"), true, Vector2(-32, 16), ExtResource("7_4c57u"), true],
-"version": 3
-}
-
-[sub_resource type="Resource" id="Resource_d13ii"]
-script = ExtResource("7_5vw27")
-obstacleToSpawn = SubResource("PackedScene_ryguw")
-time_to_wait_next = 6.0
-metadata/_custom_type_script = "uid://c3cku758krhgu"
-
-[sub_resource type="PackedScene" id="PackedScene_1u8w0"]
-_bundled = {
-"conn_count": 0,
-"conns": PackedInt32Array(),
-"editable_instances": [],
-"id_paths": [PackedInt32Array(), PackedInt32Array()],
-"names": PackedStringArray("Log", "Area2D", "monitoring", "script", "metadata/_edit_group_", "CollisionShape2D", "CollisionShape2D", "position", "shape", "metadata/_edit_group_", "Sprite2D", "Sprite2D", "position", "texture", "metadata/_edit_group_"),
-"node_count": 3,
-"node_ids": PackedInt32Array(865107679, 1037705177, 51436763),
-"node_paths": [NodePath("."), NodePath(".")],
-"nodes": PackedInt32Array(-1, -1, 1, 0, -1, 3, 2, 0, 3, 1, 4, 2, 0, 1073741824, 0, 6, 5, -1, 3, 7, 3, 8, 4, 9, 5, 0, 1073741825, 0, 11, 10, -1, 3, 12, 6, 13, 7, 14, 8, 0),
-"variants": [false, ExtResource("6_kek77"), true, Vector2(-32, 16), SubResource("RectangleShape2D_n6gt7"), true, Vector2(-32, 16), ExtResource("7_4c57u"), true],
-"version": 3
-}
-
-[sub_resource type="Resource" id="Resource_0odxb"]
-script = ExtResource("7_5vw27")
-obstacleToSpawn = SubResource("PackedScene_1u8w0")
-time_to_wait_next = 6.0
-metadata/_custom_type_script = "uid://c3cku758krhgu"
-
-[sub_resource type="PackedScene" id="PackedScene_lswn8"]
-_bundled = {
-"conn_count": 0,
-"conns": PackedInt32Array(),
-"editable_instances": [],
-"id_paths": [PackedInt32Array(), PackedInt32Array()],
-"names": PackedStringArray("Log", "Area2D", "monitoring", "script", "metadata/_edit_group_", "CollisionShape2D", "CollisionShape2D", "position", "shape", "metadata/_edit_group_", "Sprite2D", "Sprite2D", "position", "texture", "metadata/_edit_group_"),
-"node_count": 3,
-"node_ids": PackedInt32Array(865107679, 1037705177, 51436763),
-"node_paths": [NodePath("."), NodePath(".")],
-"nodes": PackedInt32Array(-1, -1, 1, 0, -1, 3, 2, 0, 3, 1, 4, 2, 0, 1073741824, 0, 6, 5, -1, 3, 7, 3, 8, 4, 9, 5, 0, 1073741825, 0, 11, 10, -1, 3, 12, 6, 13, 7, 14, 8, 0),
-"variants": [false, ExtResource("6_kek77"), true, Vector2(-32, 16), SubResource("RectangleShape2D_n6gt7"), true, Vector2(-32, 16), ExtResource("7_4c57u"), true],
-"version": 3
-}
-
-[sub_resource type="Resource" id="Resource_a6jrf"]
-script = ExtResource("7_5vw27")
-obstacleToSpawn = SubResource("PackedScene_lswn8")
-time_to_wait_next = 6.0
-metadata/_custom_type_script = "uid://c3cku758krhgu"
-
-[sub_resource type="Resource" id="Resource_xuqvo"]
-script = ExtResource("6_272bh")
-items = Array[ExtResource("7_5vw27")]([SubResource("Resource_getpj"), SubResource("Resource_d13ii"), SubResource("Resource_0odxb"), SubResource("Resource_a6jrf")])
-metadata/_custom_type_script = "uid://bwf5q1nxie4nj"
-
-[sub_resource type="PackedScene" id="PackedScene_4c57u"]
-_bundled = {
-"conn_count": 0,
-"conns": PackedInt32Array(),
-"editable_instances": [],
-"id_paths": [PackedInt32Array(), PackedInt32Array()],
-"names": PackedStringArray("Log", "Area2D", "monitoring", "script", "metadata/_edit_group_", "CollisionShape2D", "CollisionShape2D", "position", "shape", "metadata/_edit_group_", "Sprite2D", "Sprite2D", "position", "texture", "metadata/_edit_group_"),
-"node_count": 3,
-"node_ids": PackedInt32Array(865107679, 1037705177, 51436763),
-"node_paths": [NodePath("."), NodePath(".")],
-"nodes": PackedInt32Array(-1, -1, 1, 0, -1, 3, 2, 0, 3, 1, 4, 2, 0, 1073741824, 0, 6, 5, -1, 3, 7, 3, 8, 4, 9, 5, 0, 1073741825, 0, 11, 10, -1, 3, 12, 6, 13, 7, 14, 8, 0),
-"variants": [false, ExtResource("6_kek77"), true, Vector2(-32, 16), SubResource("RectangleShape2D_n6gt7"), true, Vector2(-32, 16), ExtResource("7_4c57u"), true],
-"version": 3
-}
-
-[sub_resource type="Resource" id="Resource_ryguw"]
-script = ExtResource("7_5vw27")
-obstacleToSpawn = SubResource("PackedScene_4c57u")
-time_to_wait_next = 12.0
-metadata/_custom_type_script = "uid://c3cku758krhgu"
-
-[sub_resource type="PackedScene" id="PackedScene_d13ii"]
-_bundled = {
-"conn_count": 0,
-"conns": PackedInt32Array(),
-"editable_instances": [],
-"id_paths": [PackedInt32Array(), PackedInt32Array()],
-"names": PackedStringArray("Log", "Area2D", "monitoring", "script", "metadata/_edit_group_", "CollisionShape2D", "CollisionShape2D", "position", "shape", "metadata/_edit_group_", "Sprite2D", "Sprite2D", "position", "texture", "metadata/_edit_group_"),
-"node_count": 3,
-"node_ids": PackedInt32Array(865107679, 1037705177, 51436763),
-"node_paths": [NodePath("."), NodePath(".")],
-"nodes": PackedInt32Array(-1, -1, 1, 0, -1, 3, 2, 0, 3, 1, 4, 2, 0, 1073741824, 0, 6, 5, -1, 3, 7, 3, 8, 4, 9, 5, 0, 1073741825, 0, 11, 10, -1, 3, 12, 6, 13, 7, 14, 8, 0),
-"variants": [false, ExtResource("6_kek77"), true, Vector2(-32, 16), SubResource("RectangleShape2D_n6gt7"), true, Vector2(-32, 16), ExtResource("7_4c57u"), true],
-"version": 3
-}
-
-[sub_resource type="Resource" id="Resource_1u8w0"]
-script = ExtResource("7_5vw27")
-obstacleToSpawn = SubResource("PackedScene_d13ii")
-time_to_wait_next = 6.0
-metadata/_custom_type_script = "uid://c3cku758krhgu"
-
-[sub_resource type="PackedScene" id="PackedScene_0odxb"]
-_bundled = {
-"conn_count": 0,
-"conns": PackedInt32Array(),
-"editable_instances": [],
-"id_paths": [PackedInt32Array(), PackedInt32Array()],
-"names": PackedStringArray("Log", "Area2D", "monitoring", "script", "metadata/_edit_group_", "CollisionShape2D", "CollisionShape2D", "position", "shape", "metadata/_edit_group_", "Sprite2D", "Sprite2D", "position", "texture", "metadata/_edit_group_"),
-"node_count": 3,
-"node_ids": PackedInt32Array(865107679, 1037705177, 51436763),
-"node_paths": [NodePath("."), NodePath(".")],
-"nodes": PackedInt32Array(-1, -1, 1, 0, -1, 3, 2, 0, 3, 1, 4, 2, 0, 1073741824, 0, 6, 5, -1, 3, 7, 3, 8, 4, 9, 5, 0, 1073741825, 0, 11, 10, -1, 3, 12, 6, 13, 7, 14, 8, 0),
-"variants": [false, ExtResource("6_kek77"), true, Vector2(-32, 16), SubResource("RectangleShape2D_n6gt7"), true, Vector2(-32, 16), ExtResource("7_4c57u"), true],
-"version": 3
-}
-
-[sub_resource type="Resource" id="Resource_lswn8"]
-script = ExtResource("7_5vw27")
-obstacleToSpawn = SubResource("PackedScene_0odxb")
-time_to_wait_next = 3.0
-metadata/_custom_type_script = "uid://c3cku758krhgu"
-
-[sub_resource type="PackedScene" id="PackedScene_a6jrf"]
-_bundled = {
-"conn_count": 0,
-"conns": PackedInt32Array(),
-"editable_instances": [],
-"id_paths": [PackedInt32Array(), PackedInt32Array()],
-"names": PackedStringArray("Log", "Area2D", "monitoring", "script", "metadata/_edit_group_", "CollisionShape2D", "CollisionShape2D", "position", "shape", "metadata/_edit_group_", "Sprite2D", "Sprite2D", "position", "texture", "metadata/_edit_group_"),
-"node_count": 3,
-"node_ids": PackedInt32Array(865107679, 1037705177, 51436763),
-"node_paths": [NodePath("."), NodePath(".")],
-"nodes": PackedInt32Array(-1, -1, 1, 0, -1, 3, 2, 0, 3, 1, 4, 2, 0, 1073741824, 0, 6, 5, -1, 3, 7, 3, 8, 4, 9, 5, 0, 1073741825, 0, 11, 10, -1, 3, 12, 6, 13, 7, 14, 8, 0),
-"variants": [false, ExtResource("6_kek77"), true, Vector2(-32, 16), SubResource("RectangleShape2D_n6gt7"), true, Vector2(-32, 16), ExtResource("7_4c57u"), true],
-"version": 3
-}
-
-[sub_resource type="Resource" id="Resource_kq58d"]
-script = ExtResource("7_5vw27")
-obstacleToSpawn = SubResource("PackedScene_a6jrf")
-time_to_wait_next = 6.0
-metadata/_custom_type_script = "uid://c3cku758krhgu"
-
-[sub_resource type="Resource" id="Resource_seu75"]
-script = ExtResource("6_272bh")
-items = Array[ExtResource("7_5vw27")]([SubResource("Resource_ryguw"), SubResource("Resource_1u8w0"), SubResource("Resource_lswn8"), SubResource("Resource_kq58d")])
-metadata/_custom_type_script = "uid://bwf5q1nxie4nj"
-
 [node name="Main" type="Node2D" unique_id=1657470593]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2078863026]
@@ -288,28 +47,11 @@ position = Vector2(304, 224)
 [node name="SpawnDirector" type="Node2D" parent="." unique_id=1956584291]
 script = ExtResource("3_272bh")
 
-[node name="Spawner" parent="SpawnDirector" unique_id=1629314907 instance=ExtResource("3_1bvp3")]
-position = Vector2(0, 192)
-spawn_sequence = SubResource("Resource_qsp4k")
-
 [node name="Spawner2" parent="SpawnDirector" unique_id=83663807 instance=ExtResource("3_1bvp3")]
 position = Vector2(0, 160)
-start_timer = 4.0
+start_timer = 15.0
 direction = -1
 spawn_sequence = SubResource("Resource_vivmo")
-
-[node name="Spawner3" parent="SpawnDirector" unique_id=566360422 instance=ExtResource("3_1bvp3")]
-position = Vector2(0, 128)
-start_timer = 1.0
-spawn_sequence = SubResource("Resource_82xsv")
-
-[node name="Spawner4" parent="SpawnDirector" unique_id=453578532 instance=ExtResource("3_1bvp3")]
-position = Vector2(0, 96)
-spawn_sequence = SubResource("Resource_xuqvo")
-
-[node name="Spawner5" parent="SpawnDirector" unique_id=795144798 instance=ExtResource("3_1bvp3")]
-position = Vector2(0, 64)
-spawn_sequence = SubResource("Resource_seu75")
 
 [node name="Frog" parent="." unique_id=874692017 instance=ExtResource("2_0xm2m")]
 position = Vector2(288, 416)
