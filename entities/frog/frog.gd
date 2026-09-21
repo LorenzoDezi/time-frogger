@@ -3,19 +3,43 @@ extends Area2D
 
 @export var step = 32.0
 @export var time_to_perform_step = 0.5
+@export var dead_frog_scene: PackedScene
 
 @onready var animated_sprite = $AnimatedSprite2D
 
 var is_performing_step = false
 var curr_step_time = 0.0
-var curr_position = Vector3()
-var next_position = Vector3()
+var start_position: Vector2
+var curr_position = Vector2()
+var next_position = Vector2()
 
 func _ready() -> void:
 	curr_position = position
+	start_position = curr_position
 	animated_sprite.play("Idle")
+	area_entered.connect(_on_area_entered)
 
 func _physics_process(delta: float) -> void:
+	_process_movement(delta)
+
+func _on_area_entered(area: Area2D) -> void:
+	if area is Obstacle:
+		var obstacle = area as Obstacle
+		if obstacle.dangerous:
+			var dead_frog = dead_frog_scene.instantiate()
+			get_parent().add_child(dead_frog)
+			dead_frog.position = position
+			dead_frog.rotation = rotation
+			if is_performing_step:
+				_end_step()
+			position = start_position
+			animated_sprite.rotation = Vector2.RIGHT.angle()
+			#TODO: reset input or a small delay
+	else:
+		#TODO
+		pass
+
+func _process_movement(delta: float) -> void:
 	if is_performing_step:
 		curr_step_time += delta
 		if curr_step_time > time_to_perform_step:

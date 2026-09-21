@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bqlc2pv77ul1g"]
+
+[ext_resource type="Texture2D" uid="uid://pxsm602hpecx" path="res://entities/frog/dead_frog.png" id="1_f40yd"]
+
+[node name="DeadFrog" type="Sprite2D" unique_id=1006889913]
+light_mask = 0
+texture = ExtResource("1_f40yd")
+offset = Vector2(16, 16)

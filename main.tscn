@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dsjh5jkpvkvou" path="res://entities/obstacles/logs/log.tscn" id="5_7mycd"]
 [ext_resource type="Script" uid="uid://bwf5q1nxie4nj" path="res://entities/spawners/spawn_sequence.gd" id="6_272bh"]
 [ext_resource type="Script" uid="uid://c3cku758krhgu" path="res://entities/spawners/spawn_sequence_item.gd" id="7_5vw27"]
+[ext_resource type="PackedScene" uid="uid://dtv73k17dbvnx" path="res://entities/obstacles/cars/red_car.tscn" id="7_kek77"]
 
 [sub_resource type="Resource" id="Resource_efxa6"]
 script = ExtResource("7_5vw27")
@@ -37,6 +38,17 @@ script = ExtResource("6_272bh")
 items = Array[ExtResource("7_5vw27")]([SubResource("Resource_efxa6"), SubResource("Resource_dg77c"), SubResource("Resource_ycdy4"), SubResource("Resource_w48qg")])
 metadata/_custom_type_script = "uid://bwf5q1nxie4nj"
 
+[sub_resource type="Resource" id="Resource_5vw27"]
+script = ExtResource("7_5vw27")
+obstacleToSpawn = ExtResource("7_kek77")
+time_to_wait_next = 3.0
+metadata/_custom_type_script = "uid://c3cku758krhgu"
+
+[sub_resource type="Resource" id="Resource_272bh"]
+script = ExtResource("6_272bh")
+items = Array[ExtResource("7_5vw27")]([SubResource("Resource_5vw27")])
+metadata/_custom_type_script = "uid://bwf5q1nxie4nj"
+
 [node name="Main" type="Node2D" unique_id=1657470593]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2078863026]
@@ -47,11 +59,17 @@ position = Vector2(304, 224)
 [node name="SpawnDirector" type="Node2D" parent="." unique_id=1956584291]
 script = ExtResource("3_272bh")
 
-[node name="Spawner2" parent="SpawnDirector" unique_id=83663807 instance=ExtResource("3_1bvp3")]
+[node name="RandomLogSpawner" parent="SpawnDirector" unique_id=83663807 instance=ExtResource("3_1bvp3")]
 position = Vector2(0, 160)
 start_timer = 15.0
 direction = -1
 spawn_sequence = SubResource("Resource_vivmo")
+
+[node name="CarSpawner" parent="SpawnDirector" unique_id=1629314907 instance=ExtResource("3_1bvp3")]
+position = Vector2(0, 384)
+start_timer = 15.0
+speed_per_second = 128
+spawn_sequence = SubResource("Resource_272bh")
 
 [node name="Frog" parent="." unique_id=874692017 instance=ExtResource("2_0xm2m")]
 position = Vector2(288, 416)

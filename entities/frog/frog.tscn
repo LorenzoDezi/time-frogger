@@ -2,9 +2,10 @@
 
 [ext_resource type="Script" uid="uid://buxas812cfn6o" path="res://entities/frog/frog.gd" id="1_df5by"]
 [ext_resource type="Texture2D" uid="uid://ddgwwnuuxwk7f" path="res://entities/frog/Frog.png" id="1_fvr38"]
+[ext_resource type="PackedScene" uid="uid://bqlc2pv77ul1g" path="res://entities/frog/dead_frog.tscn" id="2_yuud6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t4qmi"]
-size = Vector2(32, 32)
+size = Vector2(16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h2yge"]
 atlas = ExtResource("1_fvr38")
@@ -69,12 +70,15 @@ animations = [{
 }]
 
 [node name="Frog" type="Area2D" unique_id=874692017]
+z_index = 3
 collision_mask = 14
+monitorable = false
 script = ExtResource("1_df5by")
+dead_frog_scene = ExtResource("2_yuud6")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=390804570]
-position = Vector2(16, 16)
+position = Vector2(16, 18)
 shape = SubResource("RectangleShape2D_t4qmi")
 metadata/_edit_group_ = true
 
