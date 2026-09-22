@@ -5,7 +5,9 @@ extends Area2D
 @export var time_to_perform_step = 0.5
 @export var dead_frog_scene: PackedScene
 
-@onready var animated_sprite = $AnimatedSprite2D
+@onready var frog_shape = $CollisionShape2D
+@onready var animated_sprite: AnimatedSprite2D = $CollisionShape2D/AnimatedSprite2D
+@onready var preventive_raycast: RayCast2D = $CollisionShape2D/PreventiveRaycast
 
 var is_performing_step = false
 var curr_step_time = 0.0
@@ -33,7 +35,7 @@ func _on_area_entered(area: Area2D) -> void:
 			if is_performing_step:
 				_end_step()
 			position = start_position
-			animated_sprite.rotation = Vector2.RIGHT.angle()
+			frog_shape.rotation = Vector2.RIGHT.angle()
 			#TODO: reset input or a small delay
 	else:
 		#TODO
@@ -48,25 +50,35 @@ func _process_movement(delta: float) -> void:
 				next_position, curr_step_time / time_to_perform_step
 		)
 	else:
-		next_position = position
+		var target_position: Vector2 = position
 		if Input.is_action_pressed("movement_left"):
-			next_position.x -= step
-			_start_step()
+			target_position.x -= step
+			_process_step(target_position)
 		elif Input.is_action_pressed("movement_right"):
-			next_position.x += step
-			_start_step()
+			target_position.x += step
+			_process_step(target_position)
 		elif Input.is_action_pressed("movement_up"):
-			next_position.y -= step
-			_start_step()
+			target_position.y -= step
+			_process_step(target_position)
 		elif Input.is_action_pressed("movement_down"):
-			next_position.y += step
-			_start_step()
+			target_position.y += step
+			_process_step(target_position)
 
-func _start_step() -> void:
+func _process_step(target_position: Vector2) -> void:
+	frog_shape.rotation = Vector2.UP.angle_to(position.direction_to(target_position))
+
+	preventive_raycast.force_raycast_update()
+	if preventive_raycast.is_colliding():
+		#TODO: If used for more than just the wall, check if it is a wall
+		return
+	
+	_start_step(target_position)
+
+func _start_step(target_position: Vector2) -> void:
 	is_performing_step = true
 	curr_step_time = 0.0
 	curr_position = position
-	animated_sprite.rotation = Vector2.UP.angle_to(curr_position.direction_to(next_position))
+	next_position = target_position
 	animated_sprite.play("Jump")
 
 func _end_step() -> void:
