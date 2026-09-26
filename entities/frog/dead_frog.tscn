@@ -2,7 +2,11 @@
 
 [ext_resource type="Texture2D" uid="uid://pxsm602hpecx" path="res://entities/frog/dead_frog.png" id="1_f40yd"]
 
-[node name="DeadFrog" type="Sprite2D" unique_id=1006889913]
+[node name="DeadFrog" type="Node2D" unique_id=1846895857]
 light_mask = 0
+scale = Vector2(1.5, 1.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=231102500]
+position = Vector2(-5.3333335, -0.6666667)
 texture = ExtResource("1_f40yd")
 offset = Vector2(16, 16)

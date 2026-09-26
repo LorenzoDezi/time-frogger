@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bqlc2pv77ul1g" path="res://entities/frog/dead_frog.tscn" id="2_yuud6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t4qmi"]
-size = Vector2(16, 16)
+size = Vector2(28, 28)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h2yge"]
 atlas = ExtResource("1_fvr38")
@@ -75,20 +75,20 @@ collision_mask = 14
 monitorable = false
 script = ExtResource("1_df5by")
 dead_frog_scene = ExtResource("2_yuud6")
-metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=390804570]
 position = Vector2(16, 16)
 shape = SubResource("RectangleShape2D_t4qmi")
-metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollisionShape2D" unique_id=1405565668]
+position = Vector2(0, -5)
+scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_ig7tw")
 animation = &"Idle"
 
 [node name="PreventiveRaycast" type="RayCast2D" parent="CollisionShape2D" unique_id=1367727240]
 position = Vector2(0, -2)
-target_position = Vector2(0, -32)
+target_position = Vector2(0, -15)
 collision_mask = 16
 hit_from_inside = true
 collide_with_areas = true
