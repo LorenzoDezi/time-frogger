@@ -97,10 +97,8 @@ func spawn_obstacle_at(spawn_pos: Vector2) -> Obstacle:
 	var prev_sequence_timer = _sequence_item_times[prev_sequence_i] \
 				if prev_sequence_i != _item_count-1 else 0.0
 	var spawn_desync = _timer - prev_sequence_timer
-	print("Spawn desync ", spawn_desync, " at sequence i", _sequence_i)
 
 	spawn_pos.x += obstacle.speed_per_second * spawn_desync
 	obstacle.position = spawn_pos
 
-	print("Spawned ", obstacle.name, " at", spawn_pos)
 	return obstacle

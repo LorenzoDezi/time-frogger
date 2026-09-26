@@ -2,6 +2,7 @@
 
 [ext_resource type="TileSet" uid="uid://caws2ckqk6a80" path="res://levels/tiles/tile_map.tres" id="1_hjsbj"]
 [ext_resource type="PackedScene" uid="uid://c418jx75f6w60" path="res://entities/lilypads/lilypad.tscn" id="2_cwqvt"]
+[ext_resource type="Script" uid="uid://32f33oyjpnk8" path="res://levels/tiles/tile_area.gd" id="3_cwqvt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n6gt7"]
 size = Vector2(608, 224)
@@ -11,6 +12,12 @@ size = Vector2(32, 448)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cwqvt"]
 size = Vector2(672, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t4qmi"]
+size = Vector2(576, 224)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5mrsh"]
+size = Vector2(608, 224)
 
 [node name="Level" type="TileMapLayer" unique_id=2054693902]
 z_index = -1
@@ -76,3 +83,29 @@ monitoring = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BottomWall" unique_id=898665268]
 position = Vector2(-336, 16)
 shape = SubResource("RectangleShape2D_cwqvt")
+
+[node name="DeathTileArea" type="Area2D" parent="." unique_id=1570359093]
+collision_layer = 2
+collision_mask = 0
+monitoring = false
+script = ExtResource("3_cwqvt")
+dangerous = true
+metadata/_custom_type_script = "uid://32f33oyjpnk8"
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathTileArea" unique_id=1750958164]
+position = Vector2(288, 112)
+shape = SubResource("RectangleShape2D_t4qmi")
+
+[node name="SafeTileArea" type="Area2D" parent="." unique_id=615221151]
+position = Vector2(0, 224)
+collision_layer = 2
+collision_mask = 0
+monitoring = false
+script = ExtResource("3_cwqvt")
+metadata/_custom_type_script = "uid://32f33oyjpnk8"
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SafeTileArea" unique_id=944779116]
+position = Vector2(304, 112)
+shape = SubResource("RectangleShape2D_5mrsh")

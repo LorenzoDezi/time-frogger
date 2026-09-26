@@ -9,7 +9,10 @@ extends Area2D
 @onready var animated_sprite: AnimatedSprite2D = $CollisionShape2D/AnimatedSprite2D
 @onready var preventive_raycast: RayCast2D = $CollisionShape2D/PreventiveRaycast
 
-var is_being_carried = false
+var current_tile_area: TileArea
+var next_tile_area: TileArea
+
+var is_carried = false
 var carrying_obstacle: Obstacle
 var last_carrying_obstacle_pos: Vector2
 
@@ -27,6 +30,10 @@ func _ready() -> void:
 	area_exited.connect(_on_area_exited)
 
 func _physics_process(delta: float) -> void:
+	if !is_performing_step && !is_carried && current_tile_area != null && current_tile_area.dangerous:
+		_die()
+		return
+	
 	_process_movement(delta)
 
 func _on_area_entered(area: Area2D) -> void:
@@ -38,17 +45,26 @@ func _on_area_entered(area: Area2D) -> void:
 			carrying_obstacle = obstacle
 			last_carrying_obstacle_pos = obstacle.position
 			if !is_performing_step:
-				is_being_carried = true
-	else:
-		#TODO
-		pass
+				is_carried = true
+	elif area is TileArea:
+		#no overlapping tile areas are accepted in level design
+		if current_tile_area == null:
+			current_tile_area = area
+		else:
+			next_tile_area = area
 
 func _on_area_exited(area: Area2D) -> void:
 	if area is Obstacle:
 		var obstacle = area as Obstacle
 		if obstacle.carrying && obstacle == carrying_obstacle:
 			carrying_obstacle = null
-			is_being_carried = false
+			is_carried = false
+	elif area is TileArea:
+		if next_tile_area == null:
+			current_tile_area = null
+		else:
+			current_tile_area = next_tile_area
+			next_tile_area = null
 
 func _process_movement(delta: float) -> void:
 	if is_performing_step:
@@ -59,7 +75,7 @@ func _process_movement(delta: float) -> void:
 				next_position, curr_step_time / time_to_perform_step
 		)
 	else:
-		if is_being_carried:
+		if is_carried:
 			var carry_position: Vector2 = position + (carrying_obstacle.position - last_carrying_obstacle_pos)
 			var og_raycast_rotation = preventive_raycast.rotation
 			preventive_raycast.rotation = Vector2.UP.angle_to(position.direction_to(carry_position))
@@ -99,7 +115,7 @@ func _process_step(target_position: Vector2) -> void:
 
 func _start_step(target_position: Vector2) -> void:
 	is_performing_step = true
-	is_being_carried = false
+	is_carried = false
 	curr_step_time = 0.0
 	curr_position = position
 	next_position = target_position
@@ -111,7 +127,7 @@ func _end_step() -> void:
 	animated_sprite.play("Idle")
 	if carrying_obstacle != null:
 		last_carrying_obstacle_pos = carrying_obstacle.position
-		is_being_carried = true
+		is_carried = true
 
 func _die() -> void:
 	var dead_frog = dead_frog_scene.instantiate()
