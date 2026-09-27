@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://buxas812cfn6o" path="res://entities/frog/frog.gd" id="1_df5by"]
 [ext_resource type="Texture2D" uid="uid://ddgwwnuuxwk7f" path="res://entities/frog/Frog.png" id="1_fvr38"]
 [ext_resource type="PackedScene" uid="uid://bqlc2pv77ul1g" path="res://entities/frog/dead_frog.tscn" id="2_yuud6"]
+[ext_resource type="PackedScene" uid="uid://dkdlwacafubj" path="res://entities/frog/winner_frog.tscn" id="3_ecp8e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t4qmi"]
 size = Vector2(28, 28)
@@ -75,6 +76,7 @@ collision_mask = 14
 monitorable = false
 script = ExtResource("1_df5by")
 dead_frog_scene = ExtResource("2_yuud6")
+winner_frog_scene = ExtResource("3_ecp8e")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=390804570]
 position = Vector2(16, 16)

@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dkdlwacafubj"]
+
+[ext_resource type="Texture2D" uid="uid://cafy7egkyhbpx" path="res://entities/frog/frog_0_atlas_texture.tres" id="1_75tck"]
+
+[node name="WinnerFrog" type="Node2D" unique_id=1846895857]
+light_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=231102500]
+position = Vector2(16, 10)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_75tck")

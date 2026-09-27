@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://c418jx75f6w60"]
 
+[ext_resource type="Script" uid="uid://byv8534nuptqc" path="res://entities/lilypads/lilypad.gd" id="1_150ul"]
 [ext_resource type="Texture2D" uid="uid://b3a1wt0j5ralv" path="res://entities/lilypads/lilypad.png" id="1_lovyn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t4qmi"]
@@ -9,6 +10,7 @@ size = Vector2(32, 32)
 collision_layer = 8
 collision_mask = 0
 monitoring = false
+script = ExtResource("1_150ul")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2086518244]

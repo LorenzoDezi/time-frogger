@@ -3,7 +3,9 @@ extends Area2D
 
 @export var step = 32.0
 @export var time_to_perform_step = 0.5
+
 @export var dead_frog_scene: PackedScene
+@export var winner_frog_scene: PackedScene
 
 @onready var frog_shape = $CollisionShape2D
 @onready var animated_sprite: AnimatedSprite2D = $CollisionShape2D/AnimatedSprite2D
@@ -37,7 +39,9 @@ func _physics_process(delta: float) -> void:
 	_process_movement(delta)
 
 func _on_area_entered(area: Area2D) -> void:
-	if area is Obstacle:
+	if area is Lilypad:
+		_win(area as Lilypad)
+	elif area is Obstacle:
 		var obstacle = area as Obstacle
 		if obstacle.dangerous:
 			_die()
@@ -129,6 +133,14 @@ func _end_step() -> void:
 		last_carrying_obstacle_pos = carrying_obstacle.position
 		is_carried = true
 
+func _win(lilypad: Lilypad) -> void:
+	var winner_frog: Node2D = winner_frog_scene.instantiate()
+	lilypad.add_child(winner_frog)
+	winner_frog.position = Vector2.ZERO
+	#looking down
+	winner_frog.get_node("Sprite2D").rotation = 180.0
+	_reset_frog()
+
 func _die() -> void:
 	var dead_frog = dead_frog_scene.instantiate()
 	if carrying_obstacle != null:
@@ -137,6 +149,9 @@ func _die() -> void:
 		get_parent().add_child(dead_frog)
 	dead_frog.global_position = global_position
 	dead_frog.global_rotation = global_rotation
+	_reset_frog()
+
+func _reset_frog() -> void:
 	if is_performing_step:
 		_end_step()
 	position = start_position

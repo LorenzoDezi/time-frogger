@@ -65,7 +65,31 @@ start_timer = 15.0
 direction = -1
 spawn_sequence = SubResource("Resource_vivmo")
 
-[node name="CarSpawner" parent="SpawnDirector" unique_id=1629314907 instance=ExtResource("3_1bvp3")]
+[node name="RandomLogSpawner2" parent="SpawnDirector" unique_id=1629314907 instance=ExtResource("3_1bvp3")]
+position = Vector2(0, 160)
+start_timer = 15.0
+direction = -1
+spawn_sequence = SubResource("Resource_vivmo")
+
+[node name="RandomLogSpawner3" parent="SpawnDirector" unique_id=1148776216 instance=ExtResource("3_1bvp3")]
+position = Vector2(0, 128)
+start_timer = 15.0
+direction = -1
+spawn_sequence = SubResource("Resource_vivmo")
+
+[node name="RandomLogSpawner4" parent="SpawnDirector" unique_id=1199139991 instance=ExtResource("3_1bvp3")]
+position = Vector2(0, 96)
+start_timer = 15.0
+direction = -1
+spawn_sequence = SubResource("Resource_vivmo")
+
+[node name="RandomLogSpawner5" parent="SpawnDirector" unique_id=528091488 instance=ExtResource("3_1bvp3")]
+position = Vector2(0, 64)
+start_timer = 15.0
+direction = -1
+spawn_sequence = SubResource("Resource_vivmo")
+
+[node name="CarSpawner" parent="SpawnDirector" unique_id=1081540606 instance=ExtResource("3_1bvp3")]
 position = Vector2(0, 384)
 start_timer = 15.0
 speed_per_second = 128

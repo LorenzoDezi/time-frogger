@@ -1,0 +1,2 @@
+class_name Lilypad
+extends Area2D

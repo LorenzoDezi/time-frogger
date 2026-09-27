@@ -14,7 +14,7 @@ size = Vector2(32, 448)
 size = Vector2(672, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t4qmi"]
-size = Vector2(576, 224)
+size = Vector2(608, 224)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5mrsh"]
 size = Vector2(608, 224)
@@ -94,8 +94,9 @@ metadata/_custom_type_script = "uid://32f33oyjpnk8"
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeathTileArea" unique_id=1750958164]
-position = Vector2(288, 112)
+position = Vector2(304, 112)
 shape = SubResource("RectangleShape2D_t4qmi")
+debug_color = Color(0.85649395, 1.973361e-06, 1.92523e-07, 0.41960785)
 
 [node name="SafeTileArea" type="Area2D" parent="." unique_id=615221151]
 position = Vector2(0, 224)
@@ -109,3 +110,4 @@ metadata/_edit_group_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SafeTileArea" unique_id=944779116]
 position = Vector2(304, 112)
 shape = SubResource("RectangleShape2D_5mrsh")
+debug_color = Color(2.5990605e-06, 0.6259749, 0.5182743, 0.41960785)
